@@ -1,0 +1,6 @@
+*.m~
+*.chem
+*.log
+*.out
+*.inp
+docs/site/
