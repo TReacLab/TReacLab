@@ -1,0 +1,166 @@
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	Solution
+	units mol/kgw
+	Soluteone   2e-4
+	Solutetwo   1e-4
+	Equilibrium_Phases
+	Mineral             0  2e-8
+	SOLUTION_MASTER_SPECIES
+	Soluteone		Soluteone+		0.0		1    1
+	Solutetwo     Solutetwo-     0.0        1    1
+	SOLUTION_SPECIES
+	Soluteone+ = Soluteone+
+		log_k	0.0
+	Solutetwo- = Solutetwo-
+		log_k	0.0
+	PHASES
+		Mineral
+		SoluteoneSolutetwo = Soluteone+ + Solutetwo-
+		log_k		-8.48
+	SELECTED_OUTPUT
+	high_precision true
+	totals Soluteone Solutetwo 
+	equilibrium_phases Mineral
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Soluteone        2.000e-004  2.000e-004
+	Solutetwo        1.000e-004  1.000e-004
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =  1.501e-004
+                       Mass of water (kg)  =  1.000e+000
+                 Total alkalinity (eq/kg)  =  1.371e-010
+                    Total carbon (mol/kg)  =  0.000e+000
+                       Total CO2 (mol/kg)  =  0.000e+000
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  1.000e-004
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  33.31
+                               Iterations  =   3
+                                  Total H  = 1.110124e+002
+                                  Total O  = 5.550622e+001
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-            1.015e-007  1.001e-007    -6.993    -7.000    -0.006     (0)  
+   H+             1.014e-007  1.000e-007    -6.994    -7.000    -0.006      0.00
+   H2O            5.551e+001  1.000e+000     1.744    -0.000     0.000     18.07
+H(0)         1.416e-025
+   H2             7.079e-026  7.079e-026   -25.150   -25.150     0.000     (0)  
+O(0)         0.000e+000
+   O2             0.000e+000  0.000e+000   -42.080   -42.080     0.000     (0)  
+Soluteone    2.000e-004
+   Soluteone+     2.000e-004  1.972e-004    -3.699    -3.705    -0.006     (0)  
+Solutetwo    1.000e-004
+   Solutetwo-     1.000e-004  9.859e-005    -4.000    -4.006    -0.006     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.00    -25.15   -3.15  H2
+  H2O(g)           -1.51     -0.00    1.51  H2O
+  Mineral           0.77     -7.71   -8.48  SoluteoneSolutetwo
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+-----------------------------------------
+Beginning of batch-reaction calculations.
+-----------------------------------------
+
+Reaction step 1.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+Mineral           0.00    -8.48     -8.48   2.000e-008  7.334e-005  7.332e-005
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Soluteone        1.267e-004  1.267e-004
+	Solutetwo        2.668e-005  2.668e-005
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000      Charge balance
+                                       pe  =  11.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =  7.678e-005
+                       Mass of water (kg)  =  1.000e+000
+                 Total alkalinity (eq/kg)  =  1.371e-010
+                    Total carbon (mol/kg)  =  0.000e+000
+                       Total CO2 (mol/kg)  =  0.000e+000
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  1.000e-004
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  65.12
+                               Iterations  =  10
+                                  Total H  = 1.110124e+002
+                                  Total O  = 5.550622e+001
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-            1.011e-007  1.001e-007    -6.995    -7.000    -0.004     (0)  
+   H+             1.010e-007  9.999e-008    -6.996    -7.000    -0.004      0.00
+   H2O            5.551e+001  1.000e+000     1.744    -0.000     0.000     18.07
+H(0)         9.535e-040
+   H2             4.768e-040  4.768e-040   -39.322   -39.322     0.000     (0)  
+O(0)         3.668e-014
+   O2             1.834e-014  1.834e-014   -13.737   -13.737     0.000     (0)  
+Soluteone    1.267e-004
+   Soluteone+     1.267e-004  1.254e-004    -3.897    -3.902    -0.004     (0)  
+Solutetwo    2.668e-005
+   Solutetwo-     2.668e-005  2.641e-005    -4.574    -4.578    -0.004     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -36.17    -39.32   -3.15  H2
+  H2O(g)           -1.51     -0.00    1.51  H2O
+  Mineral           0.00     -8.48   -8.48  SoluteoneSolutetwo
+  O2(g)           -10.84    -13.74   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+---------------------------------
+End of Run after 526.869 Seconds.
+---------------------------------
+

@@ -1,0 +1,28 @@
+SOLUTION 1-52
+    pH        9.91
+    units     mol/L
+    C         0.0001227
+    Ca        0.0001227
+    Cl		0
+    Mg		0	
+
+EQUILIBRIUM_PHASES 1-52
+Calcite 0.0 0.0002
+Dolomite(ord)   0.0 0.0
+
+SELECTED_OUTPUT
+-reset      false
+-water      true
+-pe         true
+-high_precision true
+-pH true
+-totals C Ca Cl Mg 
+-charge_balance	true
+-alkalinity  	true
+-equilibrium_phases Calcite Dolomite(ord)
+
+USER_PUNCH
+headings  O  H  C(4) C(-4) H2O dens vol_sol  T
+-start 
+10 punch tot("O"), tot("H"), tot("C(4)"), tot("C(-4)"), mol("H2O"), RHO, SOLN_VOL SYS("C")
+-end 

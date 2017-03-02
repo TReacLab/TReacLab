@@ -1,0 +1,49 @@
+SOLUTION 0
+units mol/L
+temp 25.0
+pH 7.0 charge
+pe 12.5 O2(g) -0.68
+Ca 0.6e-3
+Cl 1.2e-3
+
+SOLUTION 1-40 
+units mol/L
+-pressure 1
+-water 1
+temp 25.0
+pH 7.0 charge
+pe 12.5 O2(g) -0.68
+Na 1.0e-3
+K 0.2e-3
+N(5) 1.2e-3
+
+
+EXCHANGE 1-40
+equilibrate 1
+X 0.0011
+
+TRANSPORT
+-cells 40
+-lengths 0.002
+-shifts 100
+-time_step 720.0
+-flow_direction forward
+-boundary_conditions constant flux
+-diffusion_coefficient 0
+-dispersivities 0.002
+-correct_disp true
+
+SELECTED_OUTPUT
+-high_precision true
+-pH true
+-water  true
+-pe     true
+-charge_balance	true
+-totals Na Cl K Ca  N(5) H(0) O(0) N(-3) N(0) N(3) N(5)
+-alkalinity  true
+
+USER_PUNCH
+headings  O  H N H2O CaX2 KX NaX dens vol_sol NH4X
+-start
+10 punch tot("O"), tot("H"), tot("N"), mol("H2O"), mol("CaX2"), mol("KX"), mol("NaX"), RHO, SOLN_VOL, mol("NH4X")
+-end

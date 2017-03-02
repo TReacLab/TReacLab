@@ -1,0 +1,7 @@
+list_solution_elements: C  Cl Na K Ca Mg  Mn S  Fe Sr Si Al  P Br F O H H2O CHARGE
+list_precipitation_dissolution_elements: Calcite
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements: Pyrite Illite Albite K-feldspar
+list_hydraulic_properties: porosity liquid_saturation RV volumetricwatercontent
+list_data_chem: dens vol_sol C(-4) C(4)  pe pH water Alk(eq/kgw) m_HS- m_S-2 m_SO4-2 m_H2S m_FeOH+ m_FeCl+ m_FeCO3 m_Fe+2 m_Fe+3 m_S(6) m_S(-2) m_Fe(2) m_Fe(3) Activ_H+ MOLO2 MOLFE3+ MOLFE+2 MOLH+ SIKFELDSPAR SI_Illite SI_Albite SI_Pyrite SI_Calcite

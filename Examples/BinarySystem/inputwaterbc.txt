@@ -1,0 +1,9 @@
+Solution
+units mol/kgw
+pH	7 charge
+
+
+SELECTED_OUTPUT
+-high_precision true
+-totals Soluteone Solutetwo 
+-equilibrium_phases Mineral

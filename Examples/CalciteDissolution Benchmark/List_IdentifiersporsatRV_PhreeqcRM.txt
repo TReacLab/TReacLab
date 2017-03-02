@@ -1,0 +1,7 @@
+list_solution_elements: C Ca Cl Mg O H H2O CHARGE
+list_precipitation_dissolution_elements: Calcite Dolomite(ord)
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements:
+list_hydraulic_properties: porosity liquid_saturation RV volumetricwatercontent
+list_data_chem: dens vol_sol C(-4) C(4)  pe pH mass_H2O Alk(eq/kgw)

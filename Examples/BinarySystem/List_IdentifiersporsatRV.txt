@@ -1,0 +1,7 @@
+list_solution_elements: Soluteone Solutetwo
+list_precipitation_dissolution_elements: Mineral
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements:
+list_hydraulic_properties: porosity liquid_saturation RV volumetricwatercontent
+list_data_chem: vol_sol water 

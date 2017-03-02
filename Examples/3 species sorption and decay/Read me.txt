@@ -1,0 +1,4 @@
+The information for this benchmark can be found in the following papers:
+
+M.Lunn, R.J. Lunn, R. Mackay "Determining analytic solutions of multiple species contaminant transport, with sorption and decay" Journal of Hydrology 180 (1996) 195-210.
+T.P. Clement, Y.Sun, B.S. Hooker, and J.N. Petersen "Modeling multispecies reactive transport in ground water"

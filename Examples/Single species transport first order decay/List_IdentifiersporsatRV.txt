@@ -1,0 +1,7 @@
+list_solution_elements: C
+list_precipitation_dissolution_elements:
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements:
+list_hydraulic_properties: porosity liquid_saturation
+list_data_chem:

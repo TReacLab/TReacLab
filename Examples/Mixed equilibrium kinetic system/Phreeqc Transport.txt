@@ -1,0 +1,151 @@
+SOLUTION 0 #boundary water
+temp      15
+pH        7.3 
+pe       13.6
+units     mol/L
+density   1 
+Cl      4.8e-4 charge
+Na      3.04e-4
+K       7.16e-4
+Ca      3.04e-4
+Mg      1.99e-4
+Sr      6.84e-7
+Si      2.5e-6
+C       1.9e-4
+S       4.8e-4
+F       1.6e-5
+Fe      5.37e-5
+Al      1e-8
+
+SOLUTION 1-40 #Brackish bicarbonate equilibrated with calcite, py and kaolinite
+ temp      15
+ pH        7.52 
+ pe       -3.090
+ units     mol/L
+ density    1
+ A                0.2
+ Al               5.106e-009  
+ Br               1.750e-005  
+ C                4.949e-003  
+ Ca               1.402e-003  
+ Cl               1.103e-002  charge
+ F                3.160e-005  
+ Fe               7.179e-006  
+ K                2.500e-004  
+ Mg               7.400e-004  
+ Mn               3.460e-006  
+ Na               1.310e-002  
+ P                3.870e-006  
+ S                9.585e-004  
+ Si               1.985e-004  
+END
+
+EQUILIBRIUM_PHASES 1-40
+Calcite        0    6.065  
+
+RATES
+
+ K-feldspar
+ 	-start
+ 	1 rem rate from Schweda (1989)
+ 	4 If (SI("K-feldspar")>= 0) then goto 100
+ 	5 r = -(((1.0e-10)*ACT("H+")^0.5) + ((2.5e-17)*ACT("H+")^(-0.45))) *(10^(SI("K-feldspar"))-1)
+ 	15 A = PARM(1) # initial area in m2/L
+ 	20 rate = A * r
+ 	30 moles = rate * time
+ 	40 If (m + moles) < 0 then moles = -m	#to avoid negative mineral concentrations
+ 	100 SAVE moles
+ 	-end
+ 
+ Illite  #Wieland and Stumm (1992)
+ 	-start
+ 	1 If (SI("Illite")>= 0) then goto 100
+ 	5 r = -( ((4.2e-12)*ACT("H+")^0.38) + ((1.5e-13)*ACT("H+")^0.09) + ((1.1e-15)*ACT("H+")^(-0.22)) ) *(10^(SI("Illite"))-1)
+ 	15 A = PARM(1) # initial area in m2/L
+ 	20 rate = A * r
+ 	30 moles = rate * time
+ 	40 If (m + moles) < 0 then moles = -m
+ 	100 SAVE moles
+ 	-end 
+ 
+ Albite #idem Anorthite
+ 	-start
+ 	1 rem rate from Chou and Wollast (1985)
+ 	4 If (SI("Albite")>= 0) then goto 100
+ 	5 r = -(((7.5e-10)*ACT("H+")^0.5) + ((1.2e-14)*ACT("H+")^(-0.3))) *(10^(SI("Albite"))-1)
+ 	15 A = PARM(1) # initial area in m2/L
+ 	20 rate = PARM(1) * r
+ 	30 moles = rate * time
+ 	40 If (m + moles) < 0 then moles = -m	#to avoid negative mineral concentrations
+ 	100 SAVE moles
+ 	-end
+ 	
+ 	
+ Pyrite
+ 	      -start
+ 	      1 rem rate from Williamson and Rimstidt (1994)
+ 	      2 rem PARM(1) = specific area in m2/L
+ 	      3 if (M <= 0) then goto 200
+ 	      4 if (SI("Pyrite") >= 0) then goto 200
+ 	      5 r1 = -(10^(-8.19) * MOL("O2")^0.5 * MOL("H+")^(-0.11))*(10^(SI("Pyrite"))-1) 
+ 	      10 r2 = -(10^(-6.07) * MOL("Fe(+3)")^0.93 * MOL("Fe(+2)")^(-0.4))*(10^(SI("Pyrite"))-1)
+ 	      20 rate = PARM(1) * (r1 + r2)
+ 	      30 moles = rate * time
+ 	      40 If (M - moles) < 0 then moles = M
+ 	      200 SAVE moles
+ 	      -end
+     
+
+KINETICS 1-40
+
+K-feldspar
+       -m 0.239
+       -m0 0.239
+       -parms 0.260
+  
+Illite
+       -m 0.144
+       -m0 0.144
+       -parms 0.482
+
+Albite
+       -m 0.289
+       -m0 0.289
+       -parms 0.292
+ Pyrite
+       -m      1.17
+       -m0     1.17
+       -parms  0.28 
+ 
+
+TRANSPORT
+	-cells 40
+	-length 0.002
+	-shifts 120
+	-time_step 720.0
+	-flow_direction forward
+	-boundary_cond constant flux
+	-diffc 0
+	-dispersivity 0.002
+	-correct_disp true
+
+SELECTED_OUTPUT
+	-reset      false
+	-water      true
+    -charge_balance     true
+	-high_precision true
+        -pe                   true
+	-pH		      true
+        -alkalinity           true
+        -ionic_strength       true
+        -totals               C  Cl Na K Ca Mg  Mn  S(6) S(-2) Fe(2) Fe(3) S  Fe Si Al  P  A Br F 
+        -molalities           HS- S-2 SO4-2 H2S FeOH+ FeCl+ FeCO3 Fe+2 
+        -equilibrium_phases   Calcite 
+        -kinetic_reactants     Pyrite Illite Albite K-feldspar
+
+
+USER_PUNCH
+headings  O  H  C(4) C(-4) H2O dens vol_sol
+-start
+10 punch tot("O"), tot("H"), tot("C(4)"), tot("C(-4)"), mol("H2O"), RHO, SOLN_VOL
+-end 

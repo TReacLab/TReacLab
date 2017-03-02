@@ -1,0 +1,32 @@
+Solution
+units mol/kgw
+Soluteone   2e-4
+Solutetwo   1e-4
+
+
+Equilibrium_Phases
+Mineral             0  2e-8
+
+#Apart
+SOLUTION_MASTER_SPECIES
+Soluteone		Soluteone+		0.0		1    1
+Solutetwo     Solutetwo-     0.0        1    1
+
+SOLUTION_SPECIES
+Soluteone+ = Soluteone+
+	log_k	0.0
+
+Solutetwo- = Solutetwo-
+	log_k	0.0
+
+
+PHASES
+	Mineral
+	SoluteoneSolutetwo = Soluteone+ + Solutetwo-
+	log_k		-8.48
+
+
+SELECTED_OUTPUT
+-high_precision true
+-totals Soluteone Solutetwo 
+-equilibrium_phases Mineral

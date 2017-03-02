@@ -1,0 +1,7 @@
+list_solution_elements: c1 c2 c3
+list_precipitation_dissolution_elements:
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements:
+list_hydraulic_properties: porosity1 porosity2 porosity3 liquid_saturation RV volumetricwatercontent
+list_data_chem: vol_sol water 

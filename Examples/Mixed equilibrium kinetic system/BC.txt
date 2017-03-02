@@ -1,0 +1,39 @@
+SOLUTION 0 #boundary water
+temp      15
+pH        7.3 
+pe       13.6
+units     mol/L
+density   1 
+Cl      4.8e-4 charge
+Na      3.04e-4
+K       7.16e-4
+Ca      3.04e-4
+Mg      1.99e-4
+Sr      6.84e-7
+Si      2.5e-6
+C       1.9e-4
+S       4.8e-4
+F       1.6e-5
+Fe      5.37e-5
+Al      1e-8
+
+SELECTED_OUTPUT
+	-reset      false
+	-water      true
+    -charge_balance true
+	-high_precision true
+        -pe                   true
+	-pH		      true
+        -alkalinity           true
+        -ionic_strength       true
+        -totals               C  Cl Na K Ca Mg  Mn  S(6) S(-2) Fe(2) Fe(3) S  Fe Si Al  P  A Br F 
+        -molalities           HS- S-2 SO4-2 H2S FeOH+ FeCl+ FeCO3 Fe+2 
+        -equilibrium_phases   Calcite 
+        -kinetic_reactants     Pyrite Illite Albite K-feldspar
+
+
+USER_PUNCH
+headings  O  H  C(4) C(-4) H2O dens vol_sol
+-start
+10 punch tot("O"), tot("H"), tot("C(4)"), tot("C(-4)"), mol("H2O"), RHO, SOLN_VOL
+-end 

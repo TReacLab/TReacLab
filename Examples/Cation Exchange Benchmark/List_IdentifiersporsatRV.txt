@@ -1,0 +1,7 @@
+list_solution_elements: cb H O H2O Ca Cl Na N K
+list_precipitation_dissolution_elements:
+list_gaseous_elements:
+list_ionexchange_elements:
+list_kineticreactants_elements:
+list_hydraulic_properties: porosity liquid_saturation RV volumetricwatercontent
+list_data_chem: dens vol_sol pe pH water Alk(eq/kgw) N(5) H(0) O(0) N(-3) N(0) N(3) N(5) CaX2 KX NaX NH4X
