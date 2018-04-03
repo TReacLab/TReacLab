@@ -1,7 +1,9 @@
 # TReacLab
 Generic coupler for using operators splitting approaches in reactive transport modeling
 
-It is related to : (papers with useful documentation coming soon). 
+It is related to : 
+https://www.sciencedirect.com/science/article/pii/S0098300417302510
+https://tel.archives-ouvertes.fr/tel-01661536/document
 
 The classical startup.m file is found in Source folder.
 
